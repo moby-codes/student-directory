@@ -6,26 +6,26 @@ def input_students
   
 # get the first name
   name = gets.chomp
-  # while the name is not empty, repeat this code
+  # while the name is not empty, repeat this code, this is how it keeps running the loop until we hit enter twice 
   while !name.empty? do
     # add the student hash to the array
     students << {name: name, cohort: :november}
     puts "Now we have #{students.count} students"
-    # get another name fromt he user
+    # get another name from the user
     name = gets.chomp
   end
- # return the array of students
+ # return the array of students. once we hit the second enter, it will return this.
  students
 end
 
 def print_header
-puts "The students of Villains Academy"
-puts "-------------"
+  puts "The students of Villains Academy"
+  puts "-------------"
 end
 
 def print(students)
-  students.each do |student|
-    puts " #{student[:name]} (#{student[:cohort]} cohort)"
+  students.each.with_index(1) do |student, index |
+    puts "#{index}. #{student[:name]} (#{student[:cohort]} cohort)"
   end
 end
 
